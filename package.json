@@ -7,13 +7,26 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.3",
     "@astrojs/starlight": "^0.27.1",
     "astro": "^4.15.3",
     "sharp": "^0.32.5",
-    "@astrojs/check": "^0.9.3",
+    "starlight-openapi": "^0.7.0",
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "lint-staged": {
+    "*.{astro,ts,js,md,mdx,tsx,jsx}": [
+      "prettier --write"
+    ]
   }
 }
