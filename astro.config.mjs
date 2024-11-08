@@ -25,15 +25,15 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Getting Started',
-          items: ["getting-started"]
+          items: ["getting-started"],
         },
         {
           label: "Smll",
-          items: ["smll"]
+          items: ["smll", "smll/endpoints"]
         },
         {
           label: "SmllClip",
-          items: ["smll-clip"]
+          items: ["smll-clip", "smll-clip/endpoints"]
         }
       ]
     })
