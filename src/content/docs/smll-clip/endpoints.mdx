@@ -5,20 +5,18 @@ description: Endpoints
 
 ## `https://clip.smll.app/api`
 
-###
-
 ### POST `/documents`
 
 #### Code
 
-##### Body
+##### Request Body
 
 ```json
 {
-    type: "code",
-    theme: AvailableThemes
-    language: AvailableLanguages
-    content: string
+    "type": "code",
+    "theme": AvailableThemes,
+    "language": AvailableLanguages,
+    "content": string
 }
 ```
 
@@ -185,12 +183,28 @@ description: Endpoints
 
 #### Document
 
-##### Body
+##### Request Body
 
 ```json
 {
-    type: "document",
-    content: string
+    "type": "document",
+    "content": string
+}
+```
+
+#### Response Body
+
+```json
+{
+    "url": string
+}
+```
+
+#### Example
+
+```json
+{
+    "url":"https://clip.smll.app/-oCqb"
 }
 ```
 
@@ -202,10 +216,10 @@ description: Endpoints
 
 ```json
 {
-    type: "code",
-    theme: AvailableThemes,
-    language: AvailableLanguages,
-    content: string
+    "type": "code",
+    "theme": AvailableThemes,
+    "language": AvailableLanguages,
+    "content": string
 }
 ```
 
@@ -213,7 +227,7 @@ description: Endpoints
 
 ```json
 {
-    type: "document",
-    content: string
+    "type": "document",
+    "content": string
 }
 ```
