@@ -4,3 +4,191 @@ description: Endpoints
 ---
 
 ## `https://smll.app/api`
+
+> Some endpoints require an [API key](/smll). Those endpoints are marked with an asterisk (\*).
+
+### GET `/link` \*
+
+Get all links of the user.
+
+#### Response
+
+```json
+{
+    "link": {
+        "id": string,
+        "code": string,
+        "isEnabled": boolean,
+        "links": {
+            "url": string,
+            "password"?: string
+        }[],
+        "originalLink": string,
+        "shortenedLink": string,
+        "metrics": {
+            "views": number,
+            "year": number,
+            "month": number,
+        }[],
+        "tags": string[],
+        "createdAt": Date,
+        "isSmartLink": boolean,
+        "isProtectedByPassword": boolean,
+        "maxVisits"?: number,
+        "deleteAt"?: Date,
+        "activeAt"?: Date
+    }
+}
+```
+
+### POST `/link`
+
+Create a link.
+
+#### Body
+
+```json
+{
+    "link": {
+        "links": [
+            {
+                "url": string,
+                "password"?: string
+            }
+        ], // At least one link is required
+        "code"?: string,
+        "maxVisits"?: number,
+        "tags"?: string[],
+        "activeAt"?: Date,
+        "deleteAt"?: Date
+    }
+}
+```
+
+#### Response
+
+```json
+{
+    "link": {
+        "id": string,
+        "code": string,
+        "isEnabled": boolean,
+        "links": {
+            "url": string,
+            "password"?: string
+        }[],
+        "originalLink": string,
+        "shortenedLink": string,
+        "metrics": {
+            "views": number,
+            "year": number,
+            "month": number,
+        }[],
+        "tags": string[],
+        "createdAt": Date,
+        "isSmartLink": boolean,
+        "isProtectedByPassword": boolean,
+        "maxVisits"?: number,
+        "deleteAt"?: Date,
+        "activeAt"?: Date
+    }
+}
+```
+
+### POST `/link/access/<link-code>`
+
+Get link of a shorted link.
+
+#### Body
+
+```json
+{
+    "password"?: string
+}
+```
+
+#### Response
+
+```json
+{
+    "link": string
+}
+```
+
+### GET `/link/<link-id>` \*
+
+Get a link by its code.
+
+#### Response
+
+```json
+{
+    "link": {
+        "id": string,
+        "code": string,
+        "isEnabled": boolean,
+        "links": {
+            "url": string,
+            "password"?: string
+        }[],
+        "originalLink": string,
+        "shortenedLink": string,
+        "metrics": {
+            "views": number,
+            "year": number,
+            "month": number,
+        }[],
+        "tags": string[],
+        "createdAt": Date,
+        "isSmartLink": boolean,
+        "isProtectedByPassword": boolean,
+        "maxVisits"?: number,
+        "deleteAt"?: Date,
+        "activeAt"?: Date
+    }
+}
+```
+
+### PATCH `/link/<link-id>` \*
+
+Update a link.
+
+#### Body
+
+```json
+{
+    "link": {
+        "links"?: [
+            {
+                "url": string,
+                "password"?: string
+            }
+        ], // At least one link is required
+        "code"?: string,
+        "maxVisits"?: number,
+        "tags"?: string[],
+        "activeAt"?: Date,
+        "deleteAt"?: Date
+    }
+}
+```
+
+#### Response
+
+```json
+{
+    "success": boolean
+}
+```
+
+### DELETE `/link/<link-id>` \*
+
+Delete a link.
+
+#### Response
+
+```json
+{
+    "success": boolean
+}
+```
