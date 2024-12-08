@@ -11,14 +11,14 @@ Create a snippet of code or a document.
 
 #### Code
 
-##### Body
+##### Request Body
 
 ```json
 {
-    type: "code",
-    theme: AvailableThemes
-    language: AvailableLanguages
-    content: string
+    "type": "code",
+    "theme": AvailableThemes,
+    "language": AvailableLanguages,
+    "content": string
 }
 ```
 
@@ -185,12 +185,28 @@ Create a snippet of code or a document.
 
 #### Document
 
-##### Body
+##### Request Body
 
 ```json
 {
-    type: "document",
-    content: string
+    "type": "document",
+    "content": string
+}
+```
+
+#### Response Body
+
+```json
+{
+    "url": string
+}
+```
+
+#### Example
+
+```json
+{
+  "url": "https://clip.smll.app/-oCqb"
 }
 ```
 
@@ -204,10 +220,10 @@ Retrieve a snippet of code or a document by its code.
 
 ```json
 {
-    type: "code",
-    theme: AvailableThemes,
-    language: AvailableLanguages,
-    content: string
+    "type": "code",
+    "theme": AvailableThemes,
+    "language": AvailableLanguages,
+    "content": string
 }
 ```
 
@@ -215,7 +231,7 @@ Retrieve a snippet of code or a document by its code.
 
 ```json
 {
-    type: "document",
-    content: string
+    "type": "document",
+    "content": string
 }
 ```
